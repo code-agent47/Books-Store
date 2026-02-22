@@ -14,15 +14,38 @@ import {SearchAction} from '../../../redux/actions/SearchAction';
 import MobileHeader from '../MobileHeader/MobileHeader';
 import { useDispatch, useSelector} from 'react-redux';
 import { TypedDispatch, RootStore } from '../../../config/ConfigStore';
+import PaymentModal from '../PaymentModal/PaymentModal';
 
 type HeaderProps = {
-  showCartProp: boolean
+  showCartProp: boolean;
+  showPaymentModalProp: boolean;
 }
-const Header = ({showCartProp}: HeaderProps) => {
+const Header = ({showCartProp, showPaymentModalProp}: HeaderProps) => {
   const [toggleCart, setToggleState] = useState(false);
+  const [togglePaymentModal, setTogglePaymentModal] = useState(false);
   const [toggleMobileHeader, setToggleMobileHeader] = useState(false);
   const cartState = useSelector( (state:RootStore) => state.cartReducer);
   const dispatch: TypedDispatch = useDispatch();
+
+  // useEffect(() => {
+  //   setTogglePaymentModal(true);
+  // }, [showPaymentModalProp]);
+
+  const showPaymentModal = () => {
+    setTogglePaymentModal(true);
+  };
+
+  const hidePaymentModal = () => {
+    setTogglePaymentModal(false);
+  };
+
+  const renderPaymentModal = () => {
+    if (togglePaymentModal) {
+      return (
+        <PaymentModal handleClose={hidePaymentModal} />
+      );
+    }
+  };
   
   useEffect(() => {
     setToggleState(true)
@@ -39,7 +62,7 @@ const Header = ({showCartProp}: HeaderProps) => {
   const renderCart = () => {
     if(toggleCart && cartState.results.products.length > 0){
       return(
-        <Cart handleClose={hideCart} />
+        <Cart handleClose={hideCart} showPaymentModal={showPaymentModal} />
       )
     }
   }
@@ -65,6 +88,7 @@ const Header = ({showCartProp}: HeaderProps) => {
   return (
     <>
     {renderCart()}
+    {renderPaymentModal()}
     <HeaderStyle>
       <div className={`container header`}>
         <div className={`header__logo`}>

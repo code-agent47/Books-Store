@@ -13,6 +13,7 @@ const HomePageTemplate = () => {
   const booksState = useSelector( (state:RootStore) => state.booksReducer);
   const searchState = useSelector( (state:RootStore) => state.searchReducer);
   const [toggleCart, setToggleCart] = useState(false)
+  const [togglePaymentModal, setTogglePaymentModal] = useState(false)
   
   useEffect(() => {
     if(booksState.results === null){
@@ -30,7 +31,7 @@ const HomePageTemplate = () => {
   return (
     <>
       <HomePageTemplateStyle>
-       <Header showCartProp={toggleCart}/>
+       <Header showCartProp={toggleCart} showPaymentModalProp={togglePaymentModal}/>
        {
          (searchState.results === null) ? 
           <>

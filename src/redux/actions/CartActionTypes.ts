@@ -2,6 +2,7 @@ export const SAVE_PRODUCT = 'SAVE_PRODUCT';
 export const INCREASE_QUANTITY = 'INCREASE_QUANTITY';
 export const DECREASE_QUANTITY = 'DECREASE_QUANTITY';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const CLEAR_CART = 'CLEAR_CART';
 
 export interface SaveProduct {
     type: typeof SAVE_PRODUCT
@@ -22,4 +23,9 @@ export interface DeleteProduct {
     data: any
 }
 
-export type SubmitDispatchTypes = SaveProduct | IncreaseQuantity | DecreaseQuantity | DeleteProduct
+export interface ClearCart {
+    type: typeof CLEAR_CART
+    data: any
+}
+
+export type SubmitDispatchTypes = SaveProduct | IncreaseQuantity | DecreaseQuantity | DeleteProduct | ClearCart

@@ -246,6 +246,24 @@ const CartStyle = styled.div`
       width: 100%;
     }
   }
+
+  .modal-container__box__content__bottom__form{
+    margin-top: 32px;
+    input{
+      background: #F9F9FB;
+      border: 1px solid #DDDDDD;
+      border-radius: 5px;
+      box-sizing: border-box;
+      height: 40px;
+      margin-top: 16px;
+      padding-left: 20px;
+      width: 100%;
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
 `;
 
 export default CartStyle;

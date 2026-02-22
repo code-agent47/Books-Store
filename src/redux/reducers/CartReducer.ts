@@ -1,4 +1,4 @@
-import {SubmitDispatchTypes, SAVE_PRODUCT, INCREASE_QUANTITY, DECREASE_QUANTITY, DELETE_PRODUCT} from '../actions/CartActionTypes';
+import {SubmitDispatchTypes, SAVE_PRODUCT, INCREASE_QUANTITY, DECREASE_QUANTITY, DELETE_PRODUCT, CLEAR_CART} from '../actions/CartActionTypes';
 
 interface DefaultStateI {
    fetching: boolean,
@@ -65,6 +65,15 @@ const cartReducer = (state: DefaultStateI = defaultState, action: SubmitDispatch
               products: [...oldState]
           }
         }
+    }
+    case CLEAR_CART:{
+        return {
+            ...state,
+            results: {
+                // ...state.results,
+                products: []
+            }
+          }
     }
     default:
       return state;

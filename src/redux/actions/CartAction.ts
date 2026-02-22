@@ -4,7 +4,8 @@ import {
   SAVE_PRODUCT,
   INCREASE_QUANTITY,
   DELETE_PRODUCT,
-  DECREASE_QUANTITY
+  DECREASE_QUANTITY,
+  CLEAR_CART
 } from './CartActionTypes';
 
 export const saveProduct = (data: object) => {
@@ -41,4 +42,12 @@ export const deleteProduct = (data: object) => {
             data
         });
     };
+};
+
+export const clearCart = () => {
+  return (dispatch: Dispatch<SubmitDispatchTypes | any>) => {
+      dispatch({ 
+          type: CLEAR_CART
+      });
+  };
 };
