@@ -4,8 +4,8 @@ import Text from "../../atoms/Text/Text";
 import HeaderText from "../../atoms/HeaderText/Text";
 import Image from "../../atoms/Image/Img";
 import closeIcon from "../../../assets/images/arrow-left.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { RootStore, TypedDispatch } from "../../../config/ConfigStore";
+import { useDispatch } from "react-redux";
+import { TypedDispatch } from "../../../config/ConfigStore";
 import { clearCart } from "../../../redux/actions/CartAction";
 
 type PaymentModalProps = {
@@ -14,7 +14,6 @@ type PaymentModalProps = {
 
 const PaymentModal = ({ handleClose }: PaymentModalProps) => {
   const dispatch: TypedDispatch = useDispatch();
-  const cartState = useSelector((state: RootStore) => state.cartReducer);
   const [form, setForm] = useState({
     cardName: "",
     cardNumber: "",
