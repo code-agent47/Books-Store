@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Quidax-Assessment
+# Books Store
 =======
 # Getting Started with Create React App
 
